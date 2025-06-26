@@ -10,6 +10,7 @@ public class Loginpage extends DriverSetup {
 
     @Test
     public  void login() throws InterruptedException {
+        //this code is to bypass OTp and make it reusble without login again
         driver.manage().window().maximize();
         driver.get("https://www.rokomari.com/");
         Thread.sleep(4000);
@@ -27,10 +28,12 @@ public class Loginpage extends DriverSetup {
         driver.findElement(By.xpath("//button[@id='js--btn-next']")).click();
         Thread.sleep(30000);
 
+        //hover an element
         Actions scroll = new Actions(driver);
         WebElement hover= driver.findElement(By.xpath("//span[normalize-space()='Hello,sab****com']"));
         scroll.moveToElement(hover).build().perform();
         Thread.sleep(1000);
+
         driver.findElement(By.xpath("//a[normalize-space()='My Profile']")).click();
         Thread.sleep(2000);
         driver.findElement(By.xpath("//span[@class='points__text']")).click();
