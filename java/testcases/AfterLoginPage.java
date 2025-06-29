@@ -91,9 +91,12 @@ public class AfterLoginPage extends DriverSetup {
         Thread.sleep(1000);
 
         // Giving Form Input
-        WebElement ShippingAdd,Fill,fill,last;
+        WebElement ShippingAdd,Fill,fill,last,Checkpoint,name,zone,textarea;
+        driver.findElement(By.cssSelector("body > div:nth-child(7) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > form:nth-child(1) > div:nth-child(20) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > p:nth-child(3) > label:nth-child(2)")).click();
         ShippingAdd = driver.findElement(By.xpath("//div[@id='shipping-payment']"));
         ShippingAdd.click();
+        name = driver.findElement(By.xpath("//div[@class='shipping-form-container']//input[@id='name']"));
+        name.sendKeys("Rahib Rahman");
         ShippingAdd=driver.findElement(By.xpath("//fieldset[@class='group']//input[@id='phone']"));
         ShippingAdd.sendKeys("01767766776");
         ShippingAdd=driver.findElement(By.xpath("//div[@id='shipping-payment']"));
@@ -120,7 +123,19 @@ public class AfterLoginPage extends DriverSetup {
         dropdown_3.selectByVisibleText("ওসমানিনগর");
         Thread.sleep(1000);
 
+        zone = driver.findElement(By.xpath("//select[@id='js--zone']"));
+        zone.click();
+        Select dropdown4=new Select(zone);
+        Thread.sleep(1000);
+        dropdown4.selectByVisibleText("সাদীপুর ইউনিয়ন");
+        Thread.sleep(1000);
 
+        textarea=driver.findElement(By.xpath("//fieldset[@class='mb-0']//textarea[@id='address']"));
+        textarea.sendKeys("Osmani Nagar,Sylhet");
+        Thread.sleep(1000);
+
+        Checkpoint = driver.findElement(By.xpath("//label[@class='focus'][normalize-space()='Office']"));
+        Checkpoint.click();
 
     }
 }
