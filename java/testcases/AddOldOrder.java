@@ -7,10 +7,11 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-public class AfterLoginPage extends DriverSetup {
+public class AddOldOrder extends DriverSetup {
     @Test
-    public void afterlogin() throws InterruptedException {
+    public void oldOrder() throws InterruptedException {
         driver.manage().window().maximize();
+
         //Goto Rokomari.com site after login
         driver.get("https://www.rokomari.com/");
         Thread.sleep(2000);
@@ -72,11 +73,6 @@ public class AfterLoginPage extends DriverSetup {
         driver.findElement(By.xpath("//a[@class='btn home-details-btn btn-block transparent-background'][normalize-space()='View Details']")).click();
         Thread.sleep(1000);
 
-        //Click on "Add to Cart"
-//        WebElement AddTocart;
-//        AddTocart = driver.findElement(By.xpath("//div[@class='col-span-2']//button[@id='ts--desktop-button']"));
-//        AddTocart.click();
-//        Thread.sleep(1000);
 
         //Click on "Go to Cart ->"
         WebElement GotoCart;
@@ -84,10 +80,11 @@ public class AfterLoginPage extends DriverSetup {
         GotoCart.click();
         Thread.sleep(1000);
 
+
         //Click on "অর্ডার করতে এগিয়ে যান"
-        WebElement ContinureOrder;
-        ContinureOrder = driver.findElement(By.xpath("//span[contains(text(),'অর্ডার করতে এগিয়ে যান')]"));
-        ContinureOrder.click();
+        WebElement ContinueOrder;
+        ContinueOrder = driver.findElement(By.xpath("//span[contains(text(),'অর্ডার করতে এগিয়ে যান')]"));
+        ContinueOrder.click();
         Thread.sleep(1000);
 
         // Giving Form Input

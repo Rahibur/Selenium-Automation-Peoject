@@ -11,7 +11,7 @@ public class CancelOrder extends DriverSetup {
         driver.manage().window().maximize();
         //Goto Rokomari.com site after login
         driver.get("https://www.rokomari.com/");
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         WebElement cart,checkBox,trash,confirm;
         cart = driver.findElement(By.xpath("//a[@class='navigation_cartContainer__9oZWv']//*[@class='cursor-pointer']"));
         cart.click();
