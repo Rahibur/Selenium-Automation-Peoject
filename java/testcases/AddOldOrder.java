@@ -7,10 +7,11 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-public class AfterLoginPage extends DriverSetup {
+public class AddOldOrder extends DriverSetup {
     @Test
-    public void afterlogin() throws InterruptedException {
+    public void oldOrder() throws InterruptedException {
         driver.manage().window().maximize();
+
         //Goto Rokomari.com site after login
         driver.get("https://www.rokomari.com/");
         Thread.sleep(2000);
@@ -72,11 +73,6 @@ public class AfterLoginPage extends DriverSetup {
         driver.findElement(By.xpath("//a[@class='btn home-details-btn btn-block transparent-background'][normalize-space()='View Details']")).click();
         Thread.sleep(1000);
 
-        //Click on "Add to Cart"
-//        WebElement AddTocart;
-//        AddTocart = driver.findElement(By.xpath("//div[@class='col-span-2']//button[@id='ts--desktop-button']"));
-//        AddTocart.click();
-//        Thread.sleep(1000);
 
         //Click on "Go to Cart ->"
         WebElement GotoCart;
@@ -84,16 +80,20 @@ public class AfterLoginPage extends DriverSetup {
         GotoCart.click();
         Thread.sleep(1000);
 
+
         //Click on "অর্ডার করতে এগিয়ে যান"
-        WebElement ContinureOrder;
-        ContinureOrder = driver.findElement(By.xpath("//span[contains(text(),'অর্ডার করতে এগিয়ে যান')]"));
-        ContinureOrder.click();
+        WebElement ContinueOrder;
+        ContinueOrder = driver.findElement(By.xpath("//span[contains(text(),'অর্ডার করতে এগিয়ে যান')]"));
+        ContinueOrder.click();
         Thread.sleep(1000);
 
         // Giving Form Input
-        WebElement ShippingAdd,Fill,fill,last;
+        WebElement ShippingAdd,Fill,fill,last,Checkpoint,name,zone,textarea;
+        driver.findElement(By.cssSelector("body > div:nth-child(7) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > form:nth-child(1) > div:nth-child(20) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > p:nth-child(3) > label:nth-child(2)")).click();
         ShippingAdd = driver.findElement(By.xpath("//div[@id='shipping-payment']"));
         ShippingAdd.click();
+        name = driver.findElement(By.xpath("//div[@class='shipping-form-container']//input[@id='name']"));
+        name.sendKeys("Rahib Rahman");
         ShippingAdd=driver.findElement(By.xpath("//fieldset[@class='group']//input[@id='phone']"));
         ShippingAdd.sendKeys("01767766776");
         ShippingAdd=driver.findElement(By.xpath("//div[@id='shipping-payment']"));
@@ -120,7 +120,19 @@ public class AfterLoginPage extends DriverSetup {
         dropdown_3.selectByVisibleText("ওসমানিনগর");
         Thread.sleep(1000);
 
+        zone = driver.findElement(By.xpath("//select[@id='js--zone']"));
+        zone.click();
+        Select dropdown4=new Select(zone);
+        Thread.sleep(1000);
+        dropdown4.selectByVisibleText("সাদীপুর ইউনিয়ন");
+        Thread.sleep(1000);
 
+        textarea=driver.findElement(By.xpath("//fieldset[@class='mb-0']//textarea[@id='address']"));
+        textarea.sendKeys("Osmani Nagar,Sylhet");
+        Thread.sleep(1000);
+
+        Checkpoint = driver.findElement(By.xpath("//label[@class='focus'][normalize-space()='Office']"));
+        Checkpoint.click();
 
     }
 }
