@@ -1,47 +1,46 @@
 package testcases;
 
 import Utilities.DriverSetup;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
+import pages.LoginPageSelectors;
 
-public class Loginpage extends DriverSetup {
-
+public class Loginpage extends DriverSetup{
+    LoginPageSelectors loginpage = new LoginPageSelectors();
     @Test
     public  void login() throws InterruptedException {
-        //this code is to bypass OTp and make it reusble without login again
-        driver.manage().window().maximize();
-        driver.get("https://www.rokomari.com/");
-        Thread.sleep(4000);
 
+        //This code is to bypass OTP and make it reusable without login again
+        loginpage.maximizeWindow();
+        loginpage.loadPage(loginpage.url_1);
+        Thread.sleep(13000);
         //click login page
-        WebElement login;
-        login = driver.findElement(By.xpath("//a[normalize-space()='Sign In']"));
-        login.click();
+        loginpage.getElement(loginpage.login_locator);
+        loginpage.clickElement(loginpage.login_locator);
         Thread.sleep(2000);
-
         //Enter Email
-        WebElement mail;
-        mail = driver.findElement(By.xpath("//input[@placeholder='Email or phone']"));
-        mail.sendKeys("sabito7186@decodewp.com");
-        driver.findElement(By.xpath("//button[@id='js--btn-next']")).click();
+        loginpage.getElement(loginpage.mail_locator);
+        loginpage.inputKeys(loginpage.mail_locator,loginpage.email);
+        loginpage.getElement(loginpage.nextBtn_locator);
+        loginpage.clickElement(loginpage.nextBtn_locator);
         Thread.sleep(30000);
-
         //hover an element
-        Actions scroll = new Actions(driver);
-        WebElement hover= driver.findElement(By.xpath("//span[normalize-space()='Hello,sab****com']"));
-        scroll.moveToElement(hover).build().perform();
+        loginpage.getElement(loginpage.login_mail_locator);
+        loginpage.hoverElement(loginpage.login_mail_locator);
         Thread.sleep(1000);
-
-        driver.findElement(By.xpath("//a[normalize-space()='My Profile']")).click();
+        //goto my profile
+        loginpage.getElement(loginpage.my_profile_locator);
+        loginpage.clickElement(loginpage.my_profile_locator);
         Thread.sleep(2000);
-        driver.findElement(By.xpath("//span[@class='points__text']")).click();
+        //goto points page
+        loginpage.getElement(loginpage.point_text_locator);
+        loginpage.clickElement(loginpage.point_text_locator);
         Thread.sleep(1000);
-        driver.get("https://www.rokomari.com/my-section/point");
+        //Reload my profile
+        loginpage.loadPage(loginpage.url_2);
         Thread.sleep(1000);
-        driver.get("https://www.rokomari.com/my-section/profile");
-
+        //Reload points page
+        loginpage.loadPage(loginpage.url_3);
+        Thread.sleep(1000);
     }
 
 }
