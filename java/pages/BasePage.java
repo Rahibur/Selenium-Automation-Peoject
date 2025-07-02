@@ -1,9 +1,14 @@
 package pages;
 
+import io.qameta.allure.Allure;
 import org.openqa.selenium.By;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
+import java.io.ByteArrayInputStream;
 
 import static Utilities.DriverSetup.getDriver;
 
@@ -32,6 +37,8 @@ public class BasePage {
         Actions hover = new Actions(getDriver());
         hover.moveToElement(getElement(locator)).build().perform();
     }
-
-
+    //take screenshot
+    public void addScreenShot(String name){
+        Allure.addAttachment(name, new ByteArrayInputStream(((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.BYTES)));
+    }
 }

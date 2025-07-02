@@ -1,27 +1,32 @@
-
 package testcases;
 
 import Utilities.DriverSetup;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
+import pages.CanelOrderPageSelectors;
+import pages.LoginPageSelectors;
 
 public class CancelOrder extends DriverSetup {
+    LoginPageSelectors loginpage = new LoginPageSelectors();
+    CanelOrderPageSelectors cancelpage = new CanelOrderPageSelectors();
     @Test
     public void cancel() throws InterruptedException {
-        getDriver().manage().window().maximize();
+        loginpage.maximizeWindow();
+
         //Goto Rokomari.com site after login
-        getDriver().get("https://www.rokomari.com/");
+        loginpage.loadPage(loginpage.url_1);
         Thread.sleep(1000);
-        WebElement cart,checkBox,trash,confirm;
-        cart = getDriver().findElement(By.xpath("//a[@class='navigation_cartContainer__9oZWv']//*[@class='cursor-pointer']"));
-        cart.click();
-        checkBox=getDriver().findElement(By.xpath("//label[@class=\"custom-control-label\"]"));
-        checkBox.click();
-        trash=getDriver().findElement(By.xpath("//img[@alt='trash']"));
-        trash.click();
-        confirm=getDriver().findElement(By.xpath("//button[contains(text(),'হ্যাঁ')]"));
-        confirm.click();
+        //click to cart
+        cancelpage.getElement(cancelpage.cart_locator);
+        cancelpage.clickElement(cancelpage.cart_locator);
+        //click the checkbox
+        cancelpage.getElement(cancelpage.checkbox_locator);
+        cancelpage.clickElement(cancelpage.checkbox_locator);
+        //click the trash
+        cancelpage.getElement(cancelpage.trash_locator);
+        cancelpage.clickElement(cancelpage.trash_locator);
+        //click confirm
+        cancelpage.getElement(cancelpage.confirm_locator);
+        cancelpage.clickElement(cancelpage.confirm_locator);
         Thread.sleep(1000);
 
     }

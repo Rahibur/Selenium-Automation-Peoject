@@ -16,11 +16,13 @@ public class AddnewOrder extends DriverSetup {
 
         //Goto Rokomari.com site after login
         loginpage.loadPage(loginpage.url_1);
+        loginpage.addScreenShot("Main page");
         Thread.sleep(2000);
 
         // Click on "বই"
         addOrderPage.getElement(addOrderPage.bookClick_locator);
         addOrderPage.clickElement(addOrderPage.bookClick_locator);
+        addOrderPage.addScreenShot("Click on বই");
         Thread.sleep(2000);
 
         //Hover submenu
@@ -72,11 +74,13 @@ public class AddnewOrder extends DriverSetup {
 
         //Click on "Add to Cart"
         addOrderPage.getElement(addOrderPage.AddToCart_locator);
+        addOrderPage.addScreenShot("Add to Cart");
         addOrderPage.clickElement(addOrderPage.AddToCart_locator);
         Thread.sleep(1000);
 
         //Click on "Go to Cart ->"
         addOrderPage.getElement(addOrderPage.GotoCart_locator);
+        addOrderPage.addScreenShot("Go to Cart");
         addOrderPage.clickElement(addOrderPage.GotoCart_locator);
         Thread.sleep(1000);
 
@@ -134,6 +138,7 @@ public class AddnewOrder extends DriverSetup {
         //input textarea
         addOrderPage.getElement(addOrderPage.text_area_locator);
         addOrderPage.inputKeys(addOrderPage.text_area_locator,"Osmani Nagar,Sylhet");
+        addOrderPage.addScreenShot("Payment order Information");
         Thread.sleep(1000);
 
         //Clicking CheckPoint
