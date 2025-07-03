@@ -12,7 +12,18 @@
 **Tracking the update:** [Click to Track the testing History ](https://docs.google.com/document/d/1jK6JC78hgNvRjVl-b5xbqPZpBVi41WunchVnhRaZ2vc/edit?usp=sharing)
 
 ## Test Report
+**Overview**
 ![Image](https://github.com/user-attachments/assets/c15d3b15-7e0d-4682-bafe-0178bcd39c18)
+
+**TestCase 1 afterlogin**
+![Image](https://github.com/user-attachments/assets/73877662-29d7-41e7-85d0-f9321319d18f)
+
+**TestCase 2 oldorder**
+![Image](https://github.com/user-attachments/assets/525aca7f-c238-4757-b373-7ed977b48e63)
+
+**TestCase 3 cancelOrder**
+![Image](https://github.com/user-attachments/assets/fe9cd31d-6276-4232-8a55-7e728cd63aac)
+
 
 **Prerequisite:** 
 
